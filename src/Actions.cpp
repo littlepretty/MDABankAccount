@@ -140,6 +140,7 @@ void DPAction2::payPenalty(DataStore *ds) {
 
 
 void OutputProcessor::init(AbstractFactory *af) {
+        ds = af->createDS();
         scda = af->createSCDA();
         ipma = af->createIPMA();
         iima = af->createIIMA();

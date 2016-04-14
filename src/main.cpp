@@ -18,10 +18,10 @@ void testAccount1() {
         a1->init(cf1);
 
         a1->open("123", "A1", 450.0);
-        //a1->login("A1");
-        //a1->pin("321");
-        //a1->pin("123");
-        //a1->balance();
+        a1->login("A1");
+        a1->pin("321");
+        a1->pin("123");
+        a1->balance();
         //a1->deposit(60.0);
         //a1->balance();
         //a1->withdraw(200.0);
@@ -51,8 +51,7 @@ void testAccount2() {
 }
 
 int main(int argc, char *argv[]) {
-        cout<<"Hello CMake!"<<endl;
-        cout<<argv[0]<<" Version "<<MDABankAccount_VERSION_MAJOR
+        cout<<"BankAccount"<<" Version "<<MDABankAccount_VERSION_MAJOR
                 <<"."<<MDABankAccount_VERSION_MINOR<<endl;
         testAccount1();
         testAccount2();
