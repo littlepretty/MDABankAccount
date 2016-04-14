@@ -1,6 +1,4 @@
 #include "ModelDrivenArch.hpp"
-#include "Actions.hpp"
-
 
 void StartState::open() {
         context->changeState(IDLE);
@@ -94,7 +92,7 @@ void OverdrawnState::deposit() {
         op->doDeposit();
 }
 
-void OverdrawnState::withdraw() {
+void OverdrawnState::withdrawFail() {
         op->belowMinMsg();
 }
 
@@ -161,7 +159,9 @@ ModelDrivenArch::ModelDrivenArch(OutputProcessor *op) {
 
 ModelDrivenArch::~ModelDrivenArch() {
         for (int i = 0; i < states.size(); ++i) {
-                delete states[i];
+                if (states[i]) {
+                        delete states[i];
+                }
         }
 }
 

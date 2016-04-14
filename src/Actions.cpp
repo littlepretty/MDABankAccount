@@ -1,10 +1,8 @@
 #include <iostream>
 #include "Actions.hpp"
-#include "DataStore.hpp"
 #include "AbstractFactory.hpp"
 
 using namespace std;
-
 
 void SCDAction1::storeCardData(DataStore* ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
@@ -147,6 +145,7 @@ void OutputProcessor::init(AbstractFactory *af) {
         tmama = af->createTMAMA();
         ppa = af->createPPA();
         dma = af->createDMA();
+        dda = af->createDDA();
         nfma = af->createNFMA();
         dba = af->createDBA();
         dwa = af->createDWA();
