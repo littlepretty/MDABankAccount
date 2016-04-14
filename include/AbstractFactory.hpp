@@ -20,8 +20,8 @@ class AbstractFactory {
                 BelowMinMsgAction *cacheBMMA;
                 DeductPenaltyAction *cacheDPA;
         public:
-                AbstractFactory() {};
-                virtual ~AbstractFactory() {};
+                AbstractFactory();
+                virtual ~AbstractFactory();
 
                 virtual DataStore *createDS() = 0;
                 virtual StoreCardDataAction *createSCDA() = 0;

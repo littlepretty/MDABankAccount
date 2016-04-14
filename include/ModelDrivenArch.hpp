@@ -108,7 +108,7 @@ class OverdrawnState: public State {
                 virtual void lockFail();
                 virtual void lock();
                 virtual void deposit();
-                virtual void withdraw();
+                virtual void withdrawFail();
 };
 
 class LockedState: public State {
