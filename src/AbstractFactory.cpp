@@ -1,19 +1,31 @@
 #include "AbstractFactory.hpp"
 
 DataStore *ConcreteFactory1::createDS() {
-        return new DataStore1();
+        if (!cacheDS) {
+                cacheDS = new DataStore1();
+        }
+        return cacheDS;
 }
 
 DataStore *ConcreteFactory2::createDS() {
-        return new DataStore2();
+        if (!cacheDS) {
+                cacheDS = new DataStore2();
+        }
+        return cacheDS;
 }
 
 StoreCardDataAction *ConcreteFactory1::createSCDA() {
-        return new SCDAction1();
+        if (!cacheSCDA) {
+                cacheSCDA = new SCDAction1();
+        }
+        return cacheSCDA;
 }
 
 StoreCardDataAction *ConcreteFactory2::createSCDA() {
-        return new SCDAction2();
+        if (!cacheSCDA) {
+                cacheSCDA = new SCDAction2();
+        }
+        return cacheSCDA;
 }
 
 IncorrectPinMsgAction *ConcreteFactory1::createIPMA() {

@@ -5,6 +5,20 @@
 #include "Actions.hpp"
 
 class AbstractFactory {
+        protected:
+                DataStore *cacheDS;
+                StoreCardDataAction *cacheSCDA;
+                IncorrectPinMsgAction *cacheIPMA;
+                IncorrectIdMsgAction *cacheIIMA;
+                TooManyAttemptMsgAction *cacheTMAMA;
+                PromptPinAction *cachePPA;
+                DisplyMenuAction *cacheDMA;
+                DoDepositAction *cacheDDA;
+                NoFundMsgAction *cacheNFMA;
+                DisplayBalanceAction *cacheDBA;
+                DoWithdrawAction *cacheDWA;
+                BelowMinMsgAction *cacheBMMA;
+                DeductPenaltyAction *cacheDPA;
         public:
                 AbstractFactory() {};
                 virtual ~AbstractFactory() {};
