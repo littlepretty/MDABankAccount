@@ -18,7 +18,7 @@ class AbstractFactory {
                 IncorrectIdMsgAction *cacheIIMA;
                 TooManyAttemptMsgAction *cacheTMAMA;
                 PromptPinAction *cachePPA;
-                DisplyMenuAction *cacheDMA;
+                DisplayMenuAction *cacheDMA;
                 DoDepositAction *cacheDDA;
                 NoFundMsgAction *cacheNFMA;
                 DisplayBalanceAction *cacheDBA;
@@ -38,7 +38,7 @@ class AbstractFactory {
                 virtual IncorrectIdMsgAction *createIIMA() = 0;
                 virtual TooManyAttemptMsgAction *createTMAMA() = 0;
                 virtual PromptPinAction *createPPA() = 0;
-                virtual DisplyMenuAction *createDMA() = 0;
+                virtual DisplayMenuAction *createDMA() = 0;
                 virtual DoDepositAction *createDDA() = 0;
                 virtual NoFundMsgAction *createNFMA() = 0;
                 virtual DisplayBalanceAction *createDBA() = 0;
@@ -58,7 +58,7 @@ class ConcreteFactory1: public AbstractFactory {
                 virtual IncorrectIdMsgAction *createIIMA();
                 virtual TooManyAttemptMsgAction *createTMAMA();
                 virtual PromptPinAction *createPPA();
-                virtual DisplyMenuAction *createDMA();
+                virtual DisplayMenuAction *createDMA();
                 virtual DoDepositAction *createDDA();
                 virtual NoFundMsgAction *createNFMA();
                 virtual DisplayBalanceAction *createDBA();
@@ -78,7 +78,7 @@ class ConcreteFactory2: public AbstractFactory {
                 virtual IncorrectIdMsgAction *createIIMA();
                 virtual TooManyAttemptMsgAction *createTMAMA();
                 virtual PromptPinAction *createPPA();
-                virtual DisplyMenuAction *createDMA();
+                virtual DisplayMenuAction *createDMA();
                 virtual DoDepositAction *createDDA();
                 virtual NoFundMsgAction *createNFMA();
                 virtual DisplayBalanceAction *createDBA();

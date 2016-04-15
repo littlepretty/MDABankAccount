@@ -5,11 +5,61 @@
 
 using namespace std;
 
-
+/**
+ * Define member variables without specifying type
+ */
 class DataStore {
         public:
                 DataStore() {};
                 virtual ~DataStore() {};
+
+                /**
+                 * pin
+                 *//*
+                virtual void setPin(int p) {};
+                virtual int getPin() {return 0;};
+
+                *//**
+                 * id
+                 *//*
+                virtual void setId(int i) {};
+                virtual int getId() {return 0;};
+
+                *//**
+                 * balance
+                 *//*
+                virtual void setBalance(int b) {};
+                virtual int getBalance() {return 0;};
+
+                *//**
+                 * temp_d
+                 *//*
+                virtual void setTempD(int d) {};
+                virtual int getTempD() {return 0;};
+
+                *//**
+                 * temp_w
+                 *//*
+                virtual void setTempW(int w) {};
+                virtual int getTempW() {return 0;};
+
+                *//**
+                 * temp_pin
+                 *//*
+                virtual void setTempPin(int p) {};
+                virtual int getTempPin() {return 0;};
+
+                *//**
+                 * temp_id
+                 *//*
+                virtual void setTempId(int i) {};
+                virtual int getTempId() {return 0;};
+
+                *//**
+                 * temp_balance
+                 *//*
+                virtual void setTempBalance(int b) {};
+                virtual int getTempBalance() {return 0;};*/
 };
 
 /**
@@ -58,7 +108,7 @@ class DataStore1: public DataStore {
                 }
 
                 /**
-                 * Getters for all fielßds
+                 * Getters for all fields
                  */
                 string getPin() {
                         return pin;
@@ -106,56 +156,56 @@ class DataStore2: public DataStore {
                 /**
                  * Setters for all fields
                  */
-                void setPin(int p) {
+                virtual void setPin(int p) {
                         pin = p;
                 };
-                void setId(int i) {
+                virtual void setId(int i) {
                         id = i;
                 };
-                void setBalance(int b) {
+                virtual void setBalance(int b) {
                         balance = b;
                 };
-                void setTempD(int d) {
+                virtual void setTempD(int d) {
                         temp_d = d;
                 };
-                void setTempW(int w) {
+                virtual void setTempW(int w) {
                         temp_w = w;
                 };
-                void setTempPin(int p) {
+                virtual void setTempPin(int p) {
                         temp_pin = p;
                 };
-                void setTempId(int i) {
+                virtual void setTempId(int i) {
                         temp_id = i;
                 };
-                void setTempBalance(int b) {
+                virtual void setTempBalance(int b) {
                         temp_balance = b;
                 };
 
                 /**
                  * Getters for all fields
                  */
-                int getPin() {
+                virtual int getPin() {
                         return pin;
                 };
-                int getId() {
+                virtual int getId() {
                         return id;
                 };
-                int getBalance() {
+                virtual int getBalance() {
                         return balance;
                 };
-                int getTempD() {
+                virtual int getTempD() {
                         return temp_d;
                 };
-                int getTempW() {
+                virtual int getTempW() {
                         return temp_w;
                 };
-                int getTempPin() {
+                virtual int getTempPin() {
                         return temp_pin;
                 };
-                int getTempId() {
+                virtual int getTempId() {
                         return temp_id;
                 };
-                int getTempBalance() {
+                virtual int getTempBalance() {
                         return temp_balance;
                 };
 };

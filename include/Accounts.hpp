@@ -9,7 +9,7 @@ class AbstractFactory;
 class Account1 {
         private:
                 ModelDrivenArch *mda;
-                DataStore1 *ds; 
+                DataStore1 *ds;
                 const int min_balance; /* minimum balance */
                 const int max_attempts; /* max number of PIN attempts */
         public:
@@ -41,7 +41,7 @@ class Account1 {
 class Account2 {
         private:
                 ModelDrivenArch *mda;
-                DataStore2 *ds; 
+                DataStore2 *ds;
                 const int min_balance;
                 const int max_attempts;
         public:

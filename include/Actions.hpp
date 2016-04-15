@@ -14,6 +14,8 @@ class AbstractFactory;
  */
 class StoreCardDataAction {
         public:
+                StoreCardDataAction() {};
+                virtual ~StoreCardDataAction() {};
                 virtual void storeCardData(DataStore *ds) = 0;
 };
 
@@ -32,6 +34,8 @@ class SCDAction2: public StoreCardDataAction {
  */
 class IncorrectPinMsgAction {
         public:
+                IncorrectPinMsgAction() {};
+                virtual ~IncorrectPinMsgAction() {};
                 virtual void incorrectPinMsg() = 0;
 };
 
@@ -50,6 +54,8 @@ class IPMAction2: public IncorrectPinMsgAction {
  */
 class IncorrectIdMsgAction {
         public:
+                IncorrectIdMsgAction() {};
+                virtual ~IncorrectIdMsgAction() {};
                 virtual void incorrectIdMsg() = 0;
 };
 
@@ -68,6 +74,8 @@ class IIMAction2: public IncorrectIdMsgAction {
  */
 class TooManyAttemptMsgAction {
         public:
+                TooManyAttemptMsgAction() {};
+                virtual ~TooManyAttemptMsgAction() {};
                 virtual void tooManyAttemptMsg() = 0;
 };
 
@@ -86,6 +94,8 @@ class TMAMAction2: public TooManyAttemptMsgAction {
  */
 class PromptPinAction {
         public:
+                PromptPinAction() {};
+                virtual ~PromptPinAction() {};
                 virtual void promptPin() = 0;
 };
 
@@ -102,17 +112,19 @@ class PPAction2: public PromptPinAction {
 /**
  * Display menu after input correct PIN
  */
-class DisplyMenuAction {
+class DisplayMenuAction {
         public:
+                DisplayMenuAction() {};
+                virtual ~DisplayMenuAction() {};
                 virtual void displayMenu() = 0;
 };
 
-class DMAction1: public DisplyMenuAction {
+class DMAction1: public DisplayMenuAction {
         public:
                 virtual void displayMenu();
 };
 
-class DMAction2: public DisplyMenuAction {
+class DMAction2: public DisplayMenuAction {
         public:
                 virtual void displayMenu();
 };
@@ -122,6 +134,8 @@ class DMAction2: public DisplyMenuAction {
  */
 class DoDepositAction {
         public:
+                DoDepositAction() {};
+                virtual ~DoDepositAction() {};
                 virtual void doDeposit(DataStore *ds) = 0;
 };
 
@@ -140,6 +154,8 @@ class DDAction2: public DoDepositAction {
  */
 class NoFundMsgAction {
         public:
+                NoFundMsgAction () {};
+                virtual ~NoFundMsgAction() {};
                 virtual void noFundMsg() = 0;
 };
 
@@ -158,6 +174,8 @@ class NFMAction2: public NoFundMsgAction {
  */
 class DisplayBalanceAction {
         public:
+                DisplayBalanceAction() {};
+                virtual ~DisplayBalanceAction() {};
                 virtual void displayBalance(DataStore *ds) = 0;
 };
 
@@ -176,6 +194,8 @@ class DBAction2: public DisplayBalanceAction {
  */
 class DoWithdrawAction {
         public:
+                DoWithdrawAction () {};
+                virtual ~DoWithdrawAction() {};
                 virtual void doWithdraw(DataStore *ds) = 0;
 };
 
@@ -194,6 +214,8 @@ class DWAction2: public DoWithdrawAction {
  */
 class BelowMinMsgAction {
         public:
+                BelowMinMsgAction () {};
+                virtual ~BelowMinMsgAction() {};
                 virtual void belowMinMsg() = 0;
 };
 
@@ -241,7 +263,7 @@ class OutputProcessor {
                 IncorrectIdMsgAction *iima;
                 TooManyAttemptMsgAction *tmama;
                 PromptPinAction *ppa; 
-                DisplyMenuAction *dma;
+                DisplayMenuAction *dma;
                 DoDepositAction *dda;
                 NoFundMsgAction *nfma;
                 DisplayBalanceAction *dba;
