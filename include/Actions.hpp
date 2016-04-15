@@ -270,11 +270,12 @@ class OutputProcessor {
                 DoWithdrawAction *dwa;
                 BelowMinMsgAction *bmma;
                 DeductPenaltyAction *dpa;
+                AbstractFactory *af;
         public:
-                OutputProcessor() {};
+                OutputProcessor(AbstractFactory *a): af(a) {};
                 virtual ~OutputProcessor();
                 
-                void init(AbstractFactory *af);
+                void init();
                 void storeCardData();
                 void incorrectPinMsg();
                 void incorrectIdMsg();

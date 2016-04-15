@@ -10,11 +10,12 @@ class Account1 {
         private:
                 ModelDrivenArch *mda;
                 DataStore1 *ds;
+                AbstractFactory *af;
                 const int min_balance; /* minimum balance */
                 const int max_attempts; /* max number of PIN attempts */
         public:
-                Account1(ModelDrivenArch *m, int mb = 500, int ma = 3):
-                        mda(m), min_balance(mb), max_attempts(ma) {};
+                Account1(ModelDrivenArch *m, AbstractFactory *a, int mb = 500, int ma = 3):
+                        mda(m), af(a), min_balance(mb), max_attempts(ma) {};
                 virtual ~Account1() {
                         delete ds;
                 }
@@ -22,7 +23,7 @@ class Account1 {
                 /**
                  * Init DataStore with AbstractFactory
                  */
-                void init(AbstractFactory *af);
+                void init();
 
                 /**
                  * Possible events happening to Account1
@@ -42,11 +43,12 @@ class Account2 {
         private:
                 ModelDrivenArch *mda;
                 DataStore2 *ds;
+                AbstractFactory *af;
                 const int min_balance;
                 const int max_attempts;
         public:
-                Account2(ModelDrivenArch *m, int mb = 0, int ma = 2):
-                        mda(m), min_balance(mb), max_attempts(ma) {}; 
+                Account2(ModelDrivenArch *m, AbstractFactory *a, int mb = 0, int ma = 2):
+                        mda(m), af(a), min_balance(mb), max_attempts(ma) {};
                 virtual ~Account2() {
                         delete ds;
                 }
@@ -54,7 +56,7 @@ class Account2 {
                 /**
                  * Init DataStore with AbstractFactory
                  */
-                void init(AbstractFactory *af);
+                void init();
 
                 /**
                  * Possible events happening to Account2

@@ -4,7 +4,7 @@
 /**
  * To use ds properly, still need to cast it to DataStore2
  */
-void Account1::init(AbstractFactory *af) {
+void Account1::init() {
         ds = (DataStore1 *)(af->createDS());
 }
 
@@ -93,7 +93,7 @@ void Account1::unlock(string x) {
 /**
  * To use ds properly, cast it to DataStore2
  */
-void Account2::init(AbstractFactory *af) {
+void Account2::init() {
         ds = (DataStore2 *)af->createDS();
 }
 
