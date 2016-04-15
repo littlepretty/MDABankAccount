@@ -1,5 +1,8 @@
 #include "AbstractFactory.hpp"
 
+/**
+ * Explicitly initialize cacheX to NULLß
+ */
 AbstractFactory::AbstractFactory():
         cacheDS(NULL), cacheSCDA(NULL),
         cacheIPMA(NULL), cacheIIMA(NULL),
@@ -10,9 +13,19 @@ AbstractFactory::AbstractFactory():
         cacheDPA(NULL) {
 }
 
+/**
+ * Abstract Factory is NOT responsible for reclaim
+ * created/allocated objects.
+ * For various of actions, OutputProcessor reclaims them
+ * For data stores, Account reclaims them
+ */
 AbstractFactory::~AbstractFactory() {
 }
 
+/**
+ * Account class and OutputProcessor class
+ * should operate on the same instance of DataStore.
+ */
 DataStore *ConcreteFactory1::createDS() {
         if (!cacheDS) {
                 cacheDS = new DataStore1();
@@ -27,6 +40,10 @@ DataStore *ConcreteFactory2::createDS() {
         return cacheDS;
 }
 
+/**
+ * We can let factory return new instance of strategy/action
+ * every time OutputProcessor request it, HOWEVER, one is enough.
+ */
 StoreCardDataAction *ConcreteFactory1::createSCDA() {
         if (!cacheSCDA) {
                 cacheSCDA = new SCDAction1();

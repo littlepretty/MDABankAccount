@@ -153,6 +153,9 @@ void OutputProcessor::init(AbstractFactory *af) {
         dpa = af->createDPA();
 }
 
+/**
+ * Reclaim strategy objectsß
+ */
 OutputProcessor::~OutputProcessor() {
         delete scda;
         delete ipma;

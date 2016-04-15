@@ -1,21 +1,32 @@
 #include "ModelDrivenArch.hpp"
 
+/**
+ * Possible events for Start state:
+ * open
+ */
 void StartState::open() {
         context->changeState(IDLE);
         op->storeCardData();
 }
 
-
+/**
+ * Possible events for Idle state:
+ * login, loginFail
+ */
 void IdleState::login() {
         context->changeState(CHECKPIN);
         context->setAttempts(0);
+        op->promptPin();
 }
 
 void IdleState::loginFail() {
         op->incorrectIdMsg();
 }
 
-
+/**
+ * Possible events for CheckPin state
+ * correctPin, incorrectPin, logout
+ */
 void CheckPinState::correctPin() {
         context->changeState(TEMP);
         op->displayMenu();
@@ -36,7 +47,11 @@ void CheckPinState::logout() {
         context->changeState(IDLE);
 }
 
-
+/**
+ * Possible events for Ready state:
+ * balance, lockFail, lock, suspend,
+ * withdrawFail, withdraw, deposit, logout
+ */
 void ReadyState::balance() {
         op->displayBalance();
 }
@@ -70,7 +85,11 @@ void ReadyState::logout() {
         context->changeState(IDLE);
 }
 
-
+/**
+ * Possible events for Overdrawn state:
+ * logout, balance, lockFail, lock,
+ * deposit, withdrawFail
+ */
 void OverdrawnState::logout() {
         context->changeState(IDLE);
 }
@@ -96,7 +115,10 @@ void OverdrawnState::withdrawFail() {
         op->belowMinMsg();
 }
 
-
+/**
+ * Possible events for Locked state:
+ * unlock, unlockFail
+ */
 void LockedState::unlock() {
         context->changeState(TEMP);
 }
@@ -105,7 +127,10 @@ void LockedState::unlockFail() {
         op->incorrectPinMsg();
 }
 
-
+/**
+ * Possible events for Suspended state:
+ * activate, balance, close
+ */
 void SuspendedState::activate() {
         context->changeState(READY);
 }
@@ -118,7 +143,10 @@ void SuspendedState::close() {
         context->changeState(CLOSED);
 }
 
-
+/**
+ * Possible events for Temp state:
+ * aboveMin, belowMin, withdrawBelowMin
+ */
 void TempState::aboveMin() {
         context->changeState(READY);
 }
@@ -132,7 +160,9 @@ void TempState::withdrawBelowMin() {
         op->payPenalty();
 }
 
-
+/**
+ * Create a list of possible states in MDA-EFSM
+ */
 ModelDrivenArch::ModelDrivenArch(OutputProcessor *op) {
         StartState *ss = new StartState(this, op);
         IdleState *is = new IdleState(this, op);
@@ -157,6 +187,9 @@ ModelDrivenArch::ModelDrivenArch(OutputProcessor *op) {
         current = states[0];
 }
 
+/**
+ * Reclaim allocated State objects
+ */
 ModelDrivenArch::~ModelDrivenArch() {
         for (int i = 0; i < states.size(); ++i) {
                 if (states[i]) {
@@ -165,6 +198,9 @@ ModelDrivenArch::~ModelDrivenArch() {
         }
 }
 
+/**
+ * Switch based on enumeration value
+ */
 void ModelDrivenArch::changeState(StateEnum stateID) {
         switch (stateID) {
                 case START:
@@ -198,6 +234,10 @@ void ModelDrivenArch::changeState(StateEnum stateID) {
                         break;
         }
 }
+
+/**
+ * Setter and getter used by State
+ */
 void ModelDrivenArch::setAttempts(int a) {
         attempts = a;
 }
@@ -205,6 +245,10 @@ int ModelDrivenArch::getAttempts() {
         return attempts;
 }
 
+/**
+ * In decentralized State Pattern,
+ * context just forward events to states
+ */
 void ModelDrivenArch::open() {
         current->open();
 }
