@@ -1,7 +1,9 @@
 #include "Accounts.hpp"
 #include "AbstractFactory.hpp"
 
-
+/**
+ * To use ds properly, still need to cast it to DataStore2
+ */
 void Account1::init(AbstractFactory *af) {
         ds = (DataStore1 *)(af->createDS());
 }
@@ -88,9 +90,11 @@ void Account1::unlock(string x) {
         }
 }
 
-
+/**
+ * To use ds properly, cast it to DataStore2
+ */
 void Account2::init(AbstractFactory *af) {
-        ds = (DataStore2 *)(af->createDS());
+        ds = (DataStore2 *)af->createDS();
 }
 
 void Account2::OPEN(int p, int y, int a) {

@@ -1,6 +1,11 @@
 #include "ModelDrivenArch.hpp"
 
 /**
+ * Concrete states will override necessary methods,
+ * e.g. change state and take action
+ */
+
+/**
  * Possible events for Start state:
  * open
  */

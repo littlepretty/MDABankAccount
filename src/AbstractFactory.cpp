@@ -1,7 +1,7 @@
 #include "AbstractFactory.hpp"
 
 /**
- * Explicitly initialize cacheX to NULLß
+ * Explicitly initialize cacheX to NULL
  */
 AbstractFactory::AbstractFactory():
         cacheDS(NULL), cacheSCDA(NULL),
@@ -42,7 +42,12 @@ DataStore *ConcreteFactory2::createDS() {
 
 /**
  * We can let factory return new instance of strategy/action
- * every time OutputProcessor request it, HOWEVER, one is enough.
+ * every time OutputProcessor requests it.
+ * HOWEVER, in this project, one instance is enough.
+ */
+
+/**
+ * Create concrete instance of StoreCardDataAction
  */
 StoreCardDataAction *ConcreteFactory1::createSCDA() {
         if (!cacheSCDA) {
@@ -58,6 +63,9 @@ StoreCardDataAction *ConcreteFactory2::createSCDA() {
         return cacheSCDA;
 }
 
+/**
+ * Create concrete instance of IncorrectPinMsgAction
+ */
 IncorrectPinMsgAction *ConcreteFactory1::createIPMA() {
         if (!cacheIPMA) {
                 cacheIPMA = new IPMAction1();
@@ -69,8 +77,12 @@ IncorrectPinMsgAction *ConcreteFactory2::createIPMA() {
         if (!cacheIPMA) {
                 cacheIPMA = new IPMAction2();
         }
-        return cacheIPMA;}
+        return cacheIPMA;
+}
 
+/**
+ * Create concrete instance of IncorrectIdMsgAction
+ */
 IncorrectIdMsgAction *ConcreteFactory1::createIIMA() {
         if (!cacheIIMA) {
                 cacheIIMA = new IIMAction1();
@@ -82,8 +94,12 @@ IncorrectIdMsgAction *ConcreteFactory2::createIIMA() {
         if (!cacheIIMA) {
                 cacheIIMA = new IIMAction2();
         }
-        return cacheIIMA;}
+        return cacheIIMA;
+}
 
+/**
+ * Create concrete instance of TooManyAttemptMsgAction
+ */
 TooManyAttemptMsgAction *ConcreteFactory1::createTMAMA() {
         if (!cacheTMAMA) {
                 cacheTMAMA = new TMAMAction1();
@@ -95,8 +111,12 @@ TooManyAttemptMsgAction *ConcreteFactory2::createTMAMA() {
         if (!cacheTMAMA) {
                 cacheTMAMA = new TMAMAction2();
         }
-        return cacheTMAMA;}
+        return cacheTMAMA;
+}
 
+/**
+ * Create concrete instance of PromptPinAction
+ */
 PromptPinAction *ConcreteFactory1::createPPA() {
         if (!cachePPA) {
                 cachePPA = new PPAction1();
@@ -108,21 +128,29 @@ PromptPinAction *ConcreteFactory2::createPPA() {
         if (!cachePPA) {
                 cachePPA = new PPAction2();
         }
-        return cachePPA;}
+        return cachePPA;
+}
 
-DisplyMenuAction *ConcreteFactory1::createDMA() {
+/**
+ * Create concrete instance of DisplayMenuAction
+ */
+DisplayMenuAction *ConcreteFactory1::createDMA() {
         if (!cacheDMA) {
                 cacheDMA = new DMAction1();
         }
         return cacheDMA;
 }
 
-DisplyMenuAction *ConcreteFactory2::createDMA() {
+DisplayMenuAction *ConcreteFactory2::createDMA() {
         if (!cacheDMA) {
                 cacheDMA = new DMAction2();
         }
-        return cacheDMA;}
+        return cacheDMA;
+}
 
+/**
+ * Create concrete instance of DoDepositAction
+ */
 DoDepositAction *ConcreteFactory1::createDDA() {
         if (!cacheDDA) {
                 cacheDDA = new DDAction1();
@@ -134,8 +162,12 @@ DoDepositAction *ConcreteFactory2::createDDA() {
         if (!cacheDDA) {
                 cacheDDA = new DDAction2();
         }
-        return cacheDDA;}
+        return cacheDDA;
+}
 
+/**
+ * Create concrete instance of NoFundMsgAction
+ */
 NoFundMsgAction *ConcreteFactory1::createNFMA() {
         if (!cacheNFMA) {
                 cacheNFMA = new NFMAction1();
@@ -150,6 +182,9 @@ NoFundMsgAction *ConcreteFactory2::createNFMA() {
         return cacheNFMA;
 }
 
+/**
+ * Create concrete instance of DisplayBalanceAction
+ */
 DisplayBalanceAction *ConcreteFactory1::createDBA() {
         if (!cacheDBA) {
                 cacheDBA = new DBAction1();
@@ -164,6 +199,9 @@ DisplayBalanceAction *ConcreteFactory2::createDBA() {
         return cacheDBA;
 }
 
+/**
+ * Create concrete instance of DoWithdrawAction
+ */
 DoWithdrawAction *ConcreteFactory1::createDWA() {
         if (!cacheDWA) {
                 cacheDWA = new DWAction1();
@@ -178,6 +216,9 @@ DoWithdrawAction *ConcreteFactory2::createDWA() {
         return cacheDWA;
 }
 
+/**
+ * Create concrete instance of BelowMinMsgAction
+ */
 BelowMinMsgAction *ConcreteFactory1::createBMMA() {
         if (!cacheBMMA) {
                 cacheBMMA = new BMMAction1();
@@ -192,6 +233,9 @@ BelowMinMsgAction *ConcreteFactory2::createBMMA() {
         return cacheBMMA;
 }
 
+/**
+ * Create concrete instance of DeductPenaltyAction
+ */
 DeductPenaltyAction *ConcreteFactory1::createDPA() {
         if (!cacheDPA) {
                 cacheDPA = new DPAction1();

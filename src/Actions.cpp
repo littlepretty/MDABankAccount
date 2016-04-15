@@ -4,6 +4,10 @@
 
 using namespace std;
 
+/**
+ * Typically, actions for Account1 will use DataStore1 instance,
+ * which is casted from ds
+ */
 void SCDAction1::storeCardData(DataStore* ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         ds1->setPin(ds1->getTempPin());
@@ -11,6 +15,10 @@ void SCDAction1::storeCardData(DataStore* ds) {
         ds1->setBalance(ds1->getTempBalance());
 }
 
+/**
+ * Similarly, actions for Account2 will use DataStore1 instance,
+ * which is casted from ds
+ */
 void SCDAction2::storeCardData(DataStore* ds) {
         DataStore2 *ds2 = (DataStore2 *)ds;
         ds2->setPin(ds2->getTempPin());
@@ -56,7 +64,7 @@ void PPAction2::promptPin() {
 
 
 void DMAction1::displayMenu() {
-        cout<<"\tMenu at Accout1\n";
+        cout<<"\tMenu at Accoutn1\n";
         cout<<"\t\t1. Display Balance\n";
         cout<<"\t\t2. Make Deposit\n";
         cout<<"\t\t3. Withdraw\n";
@@ -66,7 +74,7 @@ void DMAction1::displayMenu() {
 }
 
 void DMAction2::displayMenu() {
-        cout<<"\tMenu at Accout2\n";
+        cout<<"\tMenu at Account2\n";
         cout<<"\t\t1. Display Balance\n";
         cout<<"\t\t2. Make Deposit\n";
         cout<<"\t\t3. Withdraw\n";
@@ -154,7 +162,7 @@ void OutputProcessor::init(AbstractFactory *af) {
 }
 
 /**
- * Reclaim strategy objectsß
+ * Reclaim strategy objects
  */
 OutputProcessor::~OutputProcessor() {
         delete scda;
