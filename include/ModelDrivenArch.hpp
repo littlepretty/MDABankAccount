@@ -6,6 +6,9 @@
 
 using namespace std;
 
+/**
+ * Enumeration of possible states
+ */
 typedef enum {
         START = 0,
         IDLE,
@@ -20,6 +23,9 @@ typedef enum {
 
 class ModelDrivenArch;
 
+/**
+ * Decentralized State Pattern
+ */
 class State {
         protected:
                 ModelDrivenArch *context;
@@ -29,6 +35,9 @@ class State {
                                 OutputProcessor *o): context(ctxt), op(o) {};
                 virtual ~State() {};
 
+                /**
+                 * Meta events of MDA's EFSM
+                 */
                 virtual void open() {};
                 virtual void login() {};
                 virtual void loginFail() {};
@@ -51,6 +60,9 @@ class State {
                 virtual void close() {};
 };
 
+/**
+ * Start state
+ */
 class StartState: public State {
         public: 
                 StartState(ModelDrivenArch *ctxt,
@@ -60,6 +72,9 @@ class StartState: public State {
                 virtual void open();
 };
 
+/**
+ * Idle state
+ */
 class IdleState: public State {
         public:
                 IdleState(ModelDrivenArch *ctxt,
@@ -70,6 +85,9 @@ class IdleState: public State {
                 virtual void loginFail();
 };
 
+/**
+ * CheckPin state
+ */
 class CheckPinState: public State {
         public:
                 CheckPinState(ModelDrivenArch *ctxt,
@@ -81,6 +99,9 @@ class CheckPinState: public State {
                 virtual void logout();
 };
 
+/**
+ * Ready state
+ */
 class ReadyState: public State {
         public:
                 ReadyState(ModelDrivenArch *ctxt,
@@ -97,6 +118,9 @@ class ReadyState: public State {
                 virtual void logout();
 };
 
+/**
+ * Overdrawn state
+ */
 class OverdrawnState: public State {
         public:
                 OverdrawnState(ModelDrivenArch *ctxt,
@@ -111,6 +135,9 @@ class OverdrawnState: public State {
                 virtual void withdrawFail();
 };
 
+/**
+ * Locked state
+ */
 class LockedState: public State {
         public:
                 LockedState(ModelDrivenArch *ctxt,
@@ -121,6 +148,9 @@ class LockedState: public State {
                 virtual void unlock();
 };
 
+/**
+ * Suspended state
+ */
 class SuspendedState: public State {
         public:
                 SuspendedState(ModelDrivenArch *ctxt,
@@ -132,6 +162,9 @@ class SuspendedState: public State {
                 virtual void activate();
 };
 
+/**
+ * Closed state
+ */
 class ClosedState: public State {
         public:        
                 ClosedState(ModelDrivenArch *ctxt,
@@ -139,6 +172,9 @@ class ClosedState: public State {
                 virtual ~ClosedState() {};
 };
 
+/**
+ * Temp state after deposit, withdraw, unlock etc.
+ */
 class TempState: public State {
         public:
                 TempState(ModelDrivenArch *ctxt,
@@ -151,20 +187,32 @@ class TempState: public State {
 };
 
 
+/**
+ * Context of State Pattern
+ */
 class ModelDrivenArch {
         private:
-                vector<State *> states;
-                State *current;
-                int attempts;
+                vector<State *> states; /* a list of all states */
+                State *current; /* current state of the EFSM */
+                int attempts; /* number of incorrect PIN attempts*/
         public:
                 ModelDrivenArch(OutputProcessor *op);
                 virtual ~ModelDrivenArch();
 
+                /**
+                 * Used by current state to make transition
+                 */
                 void changeState(StateEnum stateID);
 
+                /**
+                 * Setter and getter for attempts
+                 */
                 void setAttempts(int a);
                 int getAttempts();
 
+                /**
+                 * Meta events of MDA
+                 */
                 void open();
                 void login();
                 void loginFail();

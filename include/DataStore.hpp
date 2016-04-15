@@ -12,6 +12,9 @@ class DataStore {
                 virtual ~DataStore() {};
 };
 
+/**
+ * Data used in Account1
+ */
 class DataStore1: public DataStore {
         private:
                 string pin;
@@ -26,6 +29,9 @@ class DataStore1: public DataStore {
                 DataStore1() {};
                 virtual ~DataStore1() {};
 
+                /**
+                 * Setters for all fields
+                 */
                 void setPin(string p) {
                         pin = p;
                 }
@@ -51,6 +57,9 @@ class DataStore1: public DataStore {
                         temp_balance = b;
                 }
 
+                /**
+                 * Getters for all fielßds
+                 */
                 string getPin() {
                         return pin;
                 }
@@ -77,6 +86,9 @@ class DataStore1: public DataStore {
                 }
 };
 
+/**
+ * Data used in Account2
+ */
 class DataStore2: public DataStore {
         private:
                 int pin;
@@ -90,7 +102,10 @@ class DataStore2: public DataStore {
         public:
                 DataStore2() {};
                 virtual ~DataStore2() {};
-                
+
+                /**
+                 * Setters for all fields
+                 */
                 void setPin(int p) {
                         pin = p;
                 };
@@ -115,7 +130,10 @@ class DataStore2: public DataStore {
                 void setTempBalance(int b) {
                         temp_balance = b;
                 };
-                
+
+                /**
+                 * Getters for all fields
+                 */
                 int getPin() {
                         return pin;
                 };

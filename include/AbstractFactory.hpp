@@ -4,8 +4,14 @@
 #include "DataStore.hpp"
 #include "Actions.hpp"
 
+/**
+ * Abstract Factory Pattern
+ */
 class AbstractFactory {
         protected:
+                /**
+                 * Various objects created by this factory.
+                 */
                 DataStore *cacheDS;
                 StoreCardDataAction *cacheSCDA;
                 IncorrectPinMsgAction *cacheIPMA;
@@ -23,6 +29,9 @@ class AbstractFactory {
                 AbstractFactory();
                 virtual ~AbstractFactory();
 
+                /**
+                 * Create instances of various classes
+                 */
                 virtual DataStore *createDS() = 0;
                 virtual StoreCardDataAction *createSCDA() = 0;
                 virtual IncorrectPinMsgAction *createIPMA() = 0;

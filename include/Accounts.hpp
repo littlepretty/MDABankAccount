@@ -10,8 +10,8 @@ class Account1 {
         private:
                 ModelDrivenArch *mda;
                 DataStore1 *ds; 
-                const int min_balance;
-                const int max_attempts;
+                const int min_balance; /* minimum balance */
+                const int max_attempts; /* max number of PIN attempts */
         public:
                 Account1(ModelDrivenArch *m, int mb = 500, int ma = 3):
                         mda(m), min_balance(mb), max_attempts(ma) {};
@@ -19,8 +19,14 @@ class Account1 {
                         delete ds;
                 }
 
+                /**
+                 * Init DataStore with AbstractFactory
+                 */
                 void init(AbstractFactory *af);
-        
+
+                /**
+                 * Possible events happening to Account1
+                 */
                 void open(string p, string y, float a);
                 void pin(string x);
                 void deposit(float d);
@@ -45,8 +51,14 @@ class Account2 {
                         delete ds;
                 }
 
+                /**
+                 * Init DataStore with AbstractFactory
+                 */
                 void init(AbstractFactory *af);
 
+                /**
+                 * Possible events happening to Account2
+                 */
                 void OPEN(int p, int y, int a);
                 void PIN(int x);
                 void DEPOSIT(int d);

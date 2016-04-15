@@ -5,6 +5,13 @@
 
 class AbstractFactory;
 
+/**
+ * Strategy Pattern: strategy classes for different meta ßactions
+ */
+
+/**
+ * Store card's PIN, ID and balance information
+ */
 class StoreCardDataAction {
         public:
                 virtual void storeCardData(DataStore *ds) = 0;
@@ -20,6 +27,9 @@ class SCDAction2: public StoreCardDataAction {
                 virtual void storeCardData(DataStore *ds);
 };
 
+/**
+ * Emit incorrect PIN number message
+ */
 class IncorrectPinMsgAction {
         public:
                 virtual void incorrectPinMsg() = 0;
@@ -35,6 +45,9 @@ class IPMAction2: public IncorrectPinMsgAction {
                 virtual void incorrectPinMsg();
 };
 
+/**
+ * Emit incorrect ID message
+ */
 class IncorrectIdMsgAction {
         public:
                 virtual void incorrectIdMsg() = 0;
@@ -50,6 +63,9 @@ class IIMAction2: public IncorrectIdMsgAction {
                 virtual void incorrectIdMsg();
 };
 
+/**
+ * Emit too many attempts message after input too many incorrect PIN
+ */
 class TooManyAttemptMsgAction {
         public:
                 virtual void tooManyAttemptMsg() = 0;
@@ -65,6 +81,9 @@ class TMAMAction2: public TooManyAttemptMsgAction {
                 virtual void tooManyAttemptMsg();
 };
 
+/**
+ * Prompt for PIN
+ */
 class PromptPinAction {
         public:
                 virtual void promptPin() = 0;
@@ -80,6 +99,9 @@ class PPAction2: public PromptPinAction {
                 virtual void promptPin();
 };
 
+/**
+ * Display menu after input correct PIN
+ */
 class DisplyMenuAction {
         public:
                 virtual void displayMenu() = 0;
@@ -95,6 +117,9 @@ class DMAction2: public DisplyMenuAction {
                 virtual void displayMenu();
 };
 
+/**
+ * Make deposit
+ */
 class DoDepositAction {
         public:
                 virtual void doDeposit(DataStore *ds) = 0;
@@ -110,6 +135,9 @@ class DDAction2: public DoDepositAction {
                 virtual void doDeposit(DataStore *ds);
 };
 
+/**
+ * Show no fund message when withdraw under minimum balance
+ */
 class NoFundMsgAction {
         public:
                 virtual void noFundMsg() = 0;
@@ -125,6 +153,9 @@ class NFMAction2: public NoFundMsgAction {
                 virtual void noFundMsg();
 };
 
+/**
+ * Show current balance
+ */
 class DisplayBalanceAction {
         public:
                 virtual void displayBalance(DataStore *ds) = 0;
@@ -140,6 +171,9 @@ class DBAction2: public DisplayBalanceAction {
                 virtual void displayBalance(DataStore *ds);
 };
 
+/**
+ * Make withdraw
+ */
 class DoWithdrawAction {
         public:
                 virtual void doWithdraw(DataStore *ds) = 0;
@@ -155,6 +189,9 @@ class DWAction2: public DoWithdrawAction {
                 virtual void doWithdraw(DataStore *ds);
 };
 
+/**
+ * Display current balance is below minimum balance
+ */
 class BelowMinMsgAction {
         public:
                 virtual void belowMinMsg() = 0;
@@ -170,6 +207,9 @@ class BMMAction2: public BelowMinMsgAction {
                 virtual void belowMinMsg();
 };
 
+/**
+ * Deduct penalty when overdrawn
+ */
 class DeductPenaltyAction {
         protected:
                 const float penalty;
@@ -190,6 +230,9 @@ class DPAction2: public DeductPenaltyAction {
 };
 
 
+/**
+ * Context of different strategies/actions
+ */
 class OutputProcessor {
         private:
                 DataStore *ds;
