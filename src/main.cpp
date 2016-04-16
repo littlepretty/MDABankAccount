@@ -8,12 +8,12 @@ using namespace std;
 
 void testAccount1() {
         ConcreteFactory1* cf1 = new ConcreteFactory1();
-        OutputProcessor* op1 = new OutputProcessor();
-        op1->init(cf1);
+        OutputProcessor* op1 = new OutputProcessor(cf1);
+        op1->init();
         
         ModelDrivenArch* mda = new ModelDrivenArch(op1);
-        Account1* a1 = new Account1(mda);
-        a1->init(cf1);
+        Account1* a1 = new Account1(mda, cf1);
+        a1->init();
 
         a1->withdraw(999.9); // do nothing
         a1->open("123", "A1", 450.0);
@@ -44,12 +44,12 @@ void testAccount1() {
 
 void testAccount2() {
         ConcreteFactory2* cf2 = new ConcreteFactory2();
-        OutputProcessor* op2 = new OutputProcessor();
-        op2->init(cf2);
+        OutputProcessor* op2 = new OutputProcessor(cf2);
+        op2->init();
         
         ModelDrivenArch* mda = new ModelDrivenArch(op2);
-        Account2* a2 = new Account2(mda);
-        a2->init(cf2);
+        Account2* a2 = new Account2(mda, cf2);
+        a2->init();
 
         a2->OPEN(123, 10, 999);
         a2->LOGIN(11);
@@ -84,15 +84,69 @@ void testAccount2() {
         delete mda;
 }
 
+void testScenario1() {
+        ConcreteFactory1* cf1 = new ConcreteFactory1();
+        OutputProcessor* op1 = new OutputProcessor(cf1);
+        op1->init();
+
+        ModelDrivenArch* mda = new ModelDrivenArch(op1);
+        Account1* a1 = new Account1(mda, cf1);
+        a1->init();
+
+        a1->open("abc", "xyz", 100.5);
+        a1->login("xyz");
+        a1->pin("abc");
+        a1->deposit(400);
+        a1->balance();
+        a1->logout();
+
+        delete cf1;
+        delete a1;
+        delete op1;
+        delete mda;
+}
+
+void testScenario2() {
+        ConcreteFactory2* cf2 = new ConcreteFactory2();
+        OutputProcessor* op2 = new OutputProcessor(cf2);
+        op2->init();
+
+        ModelDrivenArch* mda = new ModelDrivenArch(op2);
+        Account2* a2 = new Account2(mda, cf2);
+        a2->init();
+
+        a2->OPEN(123, 111, 1000);
+        a2->LOGIN(111);
+        a2->PIN(112);
+        a2->PIN(222);
+        a2->PIN(333);
+
+        delete a2;
+        delete op2;
+        delete mda;
+        delete cf2;
+}
+
+void testAll() {
+        cout<<"Test Account1\n";
+        testAccount1();
+
+        cout<<"Test Scenario1\n";
+        testScenario1();
+
+        cout<<"Test Account2\n";
+        testAccount2();
+
+        cout<<"Test Scenario2\n";
+        testScenario2();
+}
+
 int main(int argc, char *argv[]) {
         cout<<"BankAccount"<<" Version "<<
                 MDABankAccount_VERSION_MAJOR<<"."<<
                 MDABankAccount_VERSION_MINOR<<endl;
+        testAll();
 
-        cout<<"Test Account1\n";
-        testAccount1();
 
-        cout<<"Test Account2\n";
-        testAccount2();
         return 0;
 }
