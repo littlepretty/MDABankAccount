@@ -64,7 +64,7 @@ void PPAction2::promptPin() {
 
 
 void DMAction1::displayMenu() {
-        cout<<"\tMenu at Accoutn1\n";
+        cout<<"\tMenu at Account1\n";
         cout<<"\t\t1. Display Balance\n";
         cout<<"\t\t2. Make Deposit\n";
         cout<<"\t\t3. Withdraw\n";
