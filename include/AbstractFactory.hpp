@@ -13,7 +13,7 @@ class AbstractFactory {
                  * Various objects created by this factory.
                  */
                 DataStore *cacheDS;
-                StoreCardDataAction *cacheSCDA;
+                StoreDataAction *cacheSCDA;
                 IncorrectPinMsgAction *cacheIPMA;
                 IncorrectIdMsgAction *cacheIIMA;
                 TooManyAttemptMsgAction *cacheTMAMA;
@@ -33,7 +33,7 @@ class AbstractFactory {
                  * Create instances of various classes
                  */
                 virtual DataStore *createDS() = 0;
-                virtual StoreCardDataAction *createSCDA() = 0;
+                virtual StoreDataAction *createSDA() = 0;
                 virtual IncorrectPinMsgAction *createIPMA() = 0;
                 virtual IncorrectIdMsgAction *createIIMA() = 0;
                 virtual TooManyAttemptMsgAction *createTMAMA() = 0;
@@ -53,7 +53,7 @@ class ConcreteFactory1: public AbstractFactory {
                 virtual ~ConcreteFactory1() {};
 
                 virtual DataStore *createDS();
-                virtual StoreCardDataAction *createSCDA();
+                virtual StoreDataAction *createSDA();
                 virtual IncorrectPinMsgAction *createIPMA();
                 virtual IncorrectIdMsgAction *createIIMA();
                 virtual TooManyAttemptMsgAction *createTMAMA();
@@ -73,7 +73,7 @@ class ConcreteFactory2: public AbstractFactory {
                 virtual ~ConcreteFactory2() {};
                 
                 virtual DataStore *createDS();
-                virtual StoreCardDataAction *createSCDA(); 
+                virtual StoreDataAction *createSDA();
                 virtual IncorrectPinMsgAction *createIPMA();
                 virtual IncorrectIdMsgAction *createIIMA();
                 virtual TooManyAttemptMsgAction *createTMAMA();

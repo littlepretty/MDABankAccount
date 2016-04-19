@@ -11,7 +11,7 @@
  */
 void StartState::open() {
         context->changeState(IDLE);
-        op->storeCardData();
+        op->storeData();
 }
 
 /**

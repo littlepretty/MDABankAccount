@@ -49,14 +49,14 @@ DataStore *ConcreteFactory2::createDS() {
 /**
  * Create concrete instance of StoreCardDataAction
  */
-StoreCardDataAction *ConcreteFactory1::createSCDA() {
+StoreDataAction *ConcreteFactory1::createSDA() {
         if (!cacheSCDA) {
                 cacheSCDA = new SCDAction1();
         }
         return cacheSCDA;
 }
 
-StoreCardDataAction *ConcreteFactory2::createSCDA() {
+StoreDataAction *ConcreteFactory2::createSDA() {
         if (!cacheSCDA) {
                 cacheSCDA = new SCDAction2();
         }

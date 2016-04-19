@@ -8,7 +8,7 @@ using namespace std;
  * Typically, actions for Account1 will use DataStore1 instance,
  * which is casted from ds
  */
-void SCDAction1::storeCardData(DataStore* ds) {
+void SCDAction1::storeData(DataStore* ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         ds1->setPin(ds1->getTempPin());
         ds1->setId(ds1->getTempId());
@@ -19,7 +19,7 @@ void SCDAction1::storeCardData(DataStore* ds) {
  * Similarly, actions for Account2 will use DataStore1 instance,
  * which is casted from ds
  */
-void SCDAction2::storeCardData(DataStore* ds) {
+void SCDAction2::storeData(DataStore* ds) {
         DataStore2 *ds2 = (DataStore2 *)ds;
         ds2->setPin(ds2->getTempPin());
         ds2->setId(ds2->getTempId());
@@ -147,7 +147,7 @@ void DPAction2::payPenalty(DataStore *ds) {
 
 void OutputProcessor::init() {
         ds = af->createDS();
-        scda = af->createSCDA();
+        sda = af->createSDA();
         ipma = af->createIPMA();
         iima = af->createIIMA();
         tmama = af->createTMAMA();
@@ -165,7 +165,7 @@ void OutputProcessor::init() {
  * Reclaim strategy objects
  */
 OutputProcessor::~OutputProcessor() {
-        delete scda;
+        delete sda;
         delete ipma;
         delete iima;
         delete tmama;
@@ -179,8 +179,8 @@ OutputProcessor::~OutputProcessor() {
         delete dpa;
 };
 
-void OutputProcessor::storeCardData() {
-        scda->storeCardData(ds);
+void OutputProcessor::storeData() {
+        sda->storeData(ds);
 }
 
 void OutputProcessor::incorrectPinMsg() {

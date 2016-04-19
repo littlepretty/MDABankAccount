@@ -12,21 +12,21 @@ class AbstractFactory;
 /**
  * Store card's PIN, ID and balance information
  */
-class StoreCardDataAction {
+class StoreDataAction {
         public:
-                StoreCardDataAction() {};
-                virtual ~StoreCardDataAction() {};
-                virtual void storeCardData(DataStore *ds) = 0;
+                StoreDataAction() {};
+                virtual ~StoreDataAction() {};
+                virtual void storeData(DataStore *ds) = 0;
 };
 
-class SCDAction1: public StoreCardDataAction {
+class SCDAction1: public StoreDataAction {
         public:
-                virtual void storeCardData(DataStore *ds);
+                virtual void storeData(DataStore *ds);
 };
 
-class SCDAction2: public StoreCardDataAction {
+class SCDAction2: public StoreDataAction {
         public:
-                virtual void storeCardData(DataStore *ds);
+                virtual void storeData(DataStore *ds);
 };
 
 /**
@@ -237,6 +237,7 @@ class DeductPenaltyAction {
                 const float penalty;
         public:
                 DeductPenaltyAction(float p = 0.0f): penalty(p) {};
+                virtual ~DeductPenaltyAction() {};
                 virtual void payPenalty(DataStore *ds) = 0;
 };
 
@@ -258,7 +259,7 @@ class DPAction2: public DeductPenaltyAction {
 class OutputProcessor {
         private:
                 DataStore *ds;
-                StoreCardDataAction *scda;
+                StoreDataAction *sda;
                 IncorrectPinMsgAction *ipma;
                 IncorrectIdMsgAction *iima;
                 TooManyAttemptMsgAction *tmama;
@@ -276,7 +277,7 @@ class OutputProcessor {
                 virtual ~OutputProcessor();
                 
                 void init();
-                void storeCardData();
+                void storeData();
                 void incorrectPinMsg();
                 void incorrectIdMsg();
                 void tooManyAttemptMsg();
