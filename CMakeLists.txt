@@ -20,6 +20,6 @@ configure_file (
 include_directories("${PROJECT_BINARY_DIR}")
  
 
-add_executable(main ${SOURCES})
+add_executable(main ${SOURCES} src/Test.cpp include/Test.h)
 
 
