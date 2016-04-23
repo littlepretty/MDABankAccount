@@ -26,7 +26,9 @@ void SCDAction2::storeData(DataStore* ds) {
         ds2->setBalance(ds2->getTempBalance());
 }
 
-
+/**
+ * Incorrect PIN message
+ */
 void IPMAction1::incorrectPinMsg() {
         cout<<"\tIncorrect Pin Input at Account 1\n";
 }
@@ -35,7 +37,9 @@ void IPMAction2::incorrectPinMsg() {
         cout<<"\tIncorrect Pin Input at Account 2\n";
 }
 
-
+/**
+ * Incorrect ID message
+ */
 void IIMAction1::incorrectIdMsg() {
         cout<<"\tIncorrect ID Input at Account 1\n";
 }
@@ -44,7 +48,9 @@ void IIMAction2::incorrectIdMsg() {
         cout<<"\tIncorrect ID Input at Account 2\n";
 }
 
-
+/**
+ * Too many attempts message
+ */
 void TMAMAction1::tooManyAttemptMsg() {
         cout<<"\t#Attempts Exceed Maximum Allowed at Account1\n";
 }
@@ -53,7 +59,9 @@ void TMAMAction2::tooManyAttemptMsg() {
         cout<<"\t#Attempts Exceed Maximum Allowed at Account2\n";
 }
 
-
+/**
+ * Prompt for PIN message
+ */
 void PPAction1::promptPin() {
         cout<<"\tPlease Input PIN to Proceed at Account1\n";
 }
@@ -62,7 +70,9 @@ void PPAction2::promptPin() {
         cout<<"\tPlease Input PIN to Proceed at Account2\n";
 }
 
-
+/**
+ * Display menu on ATM
+ */
 void DMAction1::displayMenu() {
         cout<<"\tMenu at Account1\n";
         cout<<"\t\t1. Display Balance\n";
@@ -84,6 +94,9 @@ void DMAction2::displayMenu() {
         cout<<"\t\t7. Close\n";
 }
 
+/**
+ * Make deposit to account
+ */
 void DDAction1::doDeposit(DataStore *ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         ds1->setBalance(ds1->getBalance() + ds1->getTempD());
@@ -94,7 +107,9 @@ void DDAction2::doDeposit(DataStore *ds) {
         ds2->setBalance(ds2->getBalance() + ds2->getTempD());
 }
 
-
+/**
+ * No fund message
+ */
 void NFMAction1::noFundMsg() {
         cout<<"\tZero Balance at Account1\n";
 }
@@ -103,7 +118,9 @@ void NFMAction2::noFundMsg() {
         cout<<"\tZero Balance at Account2\n";
 }
 
-
+/**
+ * Display current balance
+ */
 void DBAction1::displayBalance(DataStore *ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         cout<<"\tCurrent Balance = $"<<ds1->getBalance()<<" at Account1\n";
@@ -114,6 +131,9 @@ void DBAction2::displayBalance(DataStore *ds) {
         cout<<"\tCurrent Balance = $"<<ds2->getBalance()<<" at Account2\n";
 }
 
+/**
+ * Make withdraw
+ */
 void DWAction1::doWithdraw(DataStore *ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         ds1->setBalance(ds1->getBalance() - ds1->getTempW());
@@ -124,7 +144,9 @@ void DWAction2::doWithdraw(DataStore *ds) {
         ds2->setBalance(ds2->getBalance() - ds2->getTempW());
 }
 
-
+/**
+ * Below minimum balance message
+ */
 void BMMAction1::belowMinMsg() {
         cout<<"\tBalance Below Minimum Allowed at Account1\n";
 }
@@ -134,6 +156,9 @@ void BMMAction2::belowMinMsg() {
 }
 
 
+/**
+ * Deduct penalty message
+ */
 void DPAction1::payPenalty(DataStore *ds) {
         DataStore1 *ds1 = (DataStore1 *)ds;
         ds1->setBalance(ds1->getBalance() - penalty);
@@ -145,6 +170,9 @@ void DPAction2::payPenalty(DataStore *ds) {
 }
 
 
+/**
+ * Configure all strategies with Abstract Factory Pattern
+ */
 void OutputProcessor::init() {
         ds = af->createDS();
         sda = af->createSDA();
@@ -183,6 +211,10 @@ void OutputProcessor::storeData() {
         sda->storeData(ds);
 }
 
+/**
+ * As context class in Strategy Pattern,
+ * OutputProcessor forwards actions to corresponding strategies.
+ */
 void OutputProcessor::incorrectPinMsg() {
         ipma->incorrectPinMsg();
 }

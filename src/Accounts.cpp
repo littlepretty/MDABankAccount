@@ -1,3 +1,8 @@
+/**
+ * An implementation of the pseudo-code
+ * of Input Processors, account1 and account2
+ */
+
 #include "Accounts.hpp"
 #include "AbstractFactory.hpp"
 

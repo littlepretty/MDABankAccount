@@ -6,6 +6,9 @@
 
 using namespace std;
 
+/**
+ * Driver for running Account1
+ */
 void driverAccount1() {
         ConcreteFactory1* cf1 = new ConcreteFactory1();
         OutputProcessor* op1 = new OutputProcessor(cf1);
@@ -99,6 +102,9 @@ void driverAccount1() {
         delete cf1;
 }
 
+/**
+ * Driver for running Account2
+ */
 void driverAccount2() {
         ConcreteFactory2* cf2 = new ConcreteFactory2();
         OutputProcessor* op2 = new OutputProcessor(cf2);
@@ -106,6 +112,7 @@ void driverAccount2() {
         Account2* a2 = new Account2(mda, cf2);
         op2->init();
         a2->init();
+
         cout<< "                          ACCOUNT-2" << endl;
         cout<< "                  MENU of Operations" << endl;
         cout<< "          0. OPEN(int,int,int)" << endl;
@@ -197,6 +204,9 @@ int main(int argc, char *argv[]) {
                 MDABankAccount_VERSION_MINOR<< endl;
 
         char cmd = '\0';
+        /**
+         * Choose which account program to run
+         */
         while (cmd != 'q') {
                 cout<< "Please choose the type of ACCOUNT" << endl;
                 cout<< "1. ACCOUNT-1" << endl;

@@ -16,7 +16,7 @@ AbstractFactory::AbstractFactory():
 /**
  * Abstract Factory is NOT responsible for reclaim
  * created/allocated objects.
- * For various of actions, OutputProcessor reclaims them
+ * For various actions, OutputProcessor reclaims them
  * For data stores, Account reclaims them
  */
 AbstractFactory::~AbstractFactory() {

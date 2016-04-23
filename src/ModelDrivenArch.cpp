@@ -166,7 +166,7 @@ void TempState::withdrawBelowMin() {
 }
 
 /**
- * Create a list of possible states in MDA-EFSM
+ * Create the list of all possible states in MDA-EFSM
  */
 ModelDrivenArch::ModelDrivenArch(OutputProcessor *op) {
         StartState *ss = new StartState(this, op);
