@@ -1,3 +1,8 @@
+/**
+ * Declaration of abstract and concrete factories,
+ * to form Abstract Factory Pattern
+ */
+
 #ifndef _ABSTRACTFACTORY_HPP
 #define _ABSTRACTFACTORY_HPP
 
@@ -5,7 +10,9 @@
 #include "Actions.hpp"
 
 /**
- * Abstract Factory Pattern
+ * Abstract factory is ABSTRACT class, declaring
+ * various of pure virtual functions that helps client
+ * create/get different products
  */
 class AbstractFactory {
         protected:
@@ -47,6 +54,10 @@ class AbstractFactory {
                 virtual DeductPenaltyAction *createDPA() = 0;
 };
 
+/**
+ * Concrete factory used specially by Account1 instance.
+ * MUST override pure virtual functions in AbstractFactory.
+ */
 class ConcreteFactory1: public AbstractFactory {
         public:
                 ConcreteFactory1() {};
@@ -67,6 +78,10 @@ class ConcreteFactory1: public AbstractFactory {
                 virtual DeductPenaltyAction *createDPA();
 };
 
+/**
+ * Concrete factory used specially by Account2 instance
+ * MUST override pure virtual functions in AbstractFactory.
+ */
 class ConcreteFactory2: public AbstractFactory {
         public:
                 ConcreteFactory2() {};

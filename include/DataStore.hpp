@@ -1,3 +1,7 @@
+/**
+ * Declaration of DataStore.
+ */
+
 #ifndef _DATASTORE_HPP
 #define _DATASTORE_HPP
 
@@ -6,70 +10,31 @@
 using namespace std;
 
 /**
- * Define member variables without specifying type
+ * Act as an unified stub/interface used by
+ * Account1/2 and OutputProcessor
  */
 class DataStore {
         public:
                 DataStore() {};
                 virtual ~DataStore() {};
-
-                /**
-                 * pin
-                 *//*
-                virtual void setPin(int p) {};
-                virtual int getPin() {return 0;};
-
-                *//**
-                 * id
-                 *//*
-                virtual void setId(int i) {};
-                virtual int getId() {return 0;};
-
-                *//**
-                 * balance
-                 *//*
-                virtual void setBalance(int b) {};
-                virtual int getBalance() {return 0;};
-
-                *//**
-                 * temp_d
-                 *//*
-                virtual void setTempD(int d) {};
-                virtual int getTempD() {return 0;};
-
-                *//**
-                 * temp_w
-                 *//*
-                virtual void setTempW(int w) {};
-                virtual int getTempW() {return 0;};
-
-                *//**
-                 * temp_pin
-                 *//*
-                virtual void setTempPin(int p) {};
-                virtual int getTempPin() {return 0;};
-
-                *//**
-                 * temp_id
-                 *//*
-                virtual void setTempId(int i) {};
-                virtual int getTempId() {return 0;};
-
-                *//**
-                 * temp_balance
-                 *//*
-                virtual void setTempBalance(int b) {};
-                virtual int getTempBalance() {return 0;};*/
 };
 
 /**
- * Data used in Account1
+ * Data used in Account1. Notice the type of various
+ * member variables.
  */
 class DataStore1: public DataStore {
         private:
+                /**
+                 * Account1 information: PIN number,
+                 * ID and balance amount
+                 */
                 string pin;
                 string id;
                 float balance;
+                /**
+                 * Temporal storage for events' parameters
+                 */
                 float temp_d;
                 float temp_w;
                 string temp_pin;
@@ -141,9 +106,16 @@ class DataStore1: public DataStore {
  */
 class DataStore2: public DataStore {
         private:
+                /**
+                 * Account1 information: PIN number,
+                 * ID and balance amount
+                 */
                 int pin;
                 int id;
                 int balance;
+                /**
+                 * Temporal storage for events' parameters
+                 */
                 int temp_d;
                 int temp_w;
                 int temp_pin;

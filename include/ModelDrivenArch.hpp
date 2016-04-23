@@ -1,3 +1,9 @@
+/**
+ * Declaration of MDA class and possible states
+ * in MDA-EFSM, an implementation of decentralized
+ * State Pattern.
+ */
+
 #ifndef _MODELDRIVENARCH_HPP
 #define _MODELDRIVENARCH_HPP
 
@@ -7,7 +13,8 @@
 using namespace std;
 
 /**
- * Enumeration of possible states
+ * Enumeration of possible states, used as
+ * State ID in changeState() operation
  */
 typedef enum {
         START = 0,
@@ -194,7 +201,7 @@ class ModelDrivenArch {
         private:
                 vector<State *> states; /* a list of all states */
                 State *current; /* current state of the EFSM */
-                int attempts; /* number of incorrect PIN attempts*/
+                int attempts; /* number of incorrect PIN attempts */
         public:
                 ModelDrivenArch(OutputProcessor *op);
                 virtual ~ModelDrivenArch();

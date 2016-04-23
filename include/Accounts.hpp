@@ -1,3 +1,9 @@
+/**
+ * Declaration of two different logic/implementation:
+ * Account1 and Account2, as Input Processor in Model-
+ * driven Architecture
+ */
+
 #ifndef _ACCOUNTS_HPP
 #define _ACCOUNTS_HPP
 

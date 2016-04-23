@@ -1,13 +1,17 @@
+/**
+ * Declaration of strategies and context class
+ * in Strategy Pattern.
+ * Each strategy class corresponds to a meta action.
+ * 2 concrete strategies are subclasses from each strategy class
+ * to meet the needs of 2 account logic.
+ */
+
 #ifndef _ACTIONS_HPP
 #define _ACTIONS_HPP
 
 #include "DataStore.hpp"
 
 class AbstractFactory;
-
-/**
- * Strategy Pattern: strategy classes for different meta ßactions
- */
 
 /**
  * Store card's PIN, ID and balance information
