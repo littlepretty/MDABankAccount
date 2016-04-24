@@ -10,9 +10,10 @@ There are 5 files under `include/`: Accounts.hpp, AbstractFactory.hpp, Actions.h
 To rebuild the project, simply use the following commands:
 
 ```bash
-cd build  # change to build directory
-cmake ..  # generate build scripts
-make  # complie, link and build executable main
+mkdir build		
+cd build		# change to build directory
+cmake ..		# generate build scripts
+make 			# complie, link and build executable main
 ```
 
 To run the project, use `./main`. As the program begins, you should first choose which bank account you want to run. Then you can follow the prompted manual and choose operation by selecting operation's index number. If an operation needs parameter(s), you will input each of them. Enter `q` whenever you want to quit.
