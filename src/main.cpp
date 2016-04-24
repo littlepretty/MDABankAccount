@@ -28,7 +28,7 @@ void driverAccount1() {
         cout<< "          6. logout()" << endl;
         cout<< "          7. lock(string)" << endl;
         cout<< "          8. unlock(string)" << endl;
-        cout<< "          q. Quit the demo program" << endl;
+        cout<< "          q. Quit ACCOUNT-1" << endl;
         cout<< "          ACCOUNT-1 Execution" << endl;
         char cmd = '\0';
         while (cmd != 'q') {
@@ -125,7 +125,7 @@ void driverAccount2() {
         cout<< "          7. suspend()" << endl;
         cout<< "          8. activate()" << endl;
         cout<< "          9. close()" << endl;
-        cout<< "          q. Quit the demo program" << endl;
+        cout<< "          q. Quit ACCOUNT-2" << endl;
         cout<< "          ACCOUNT-2 Execution" << endl;
         char cmd = '\0';
         while (cmd != 'q') {
